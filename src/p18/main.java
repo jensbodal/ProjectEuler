@@ -2,6 +2,10 @@ package p18;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,8 +24,11 @@ public class main {
     public static void main(String[] args) throws FileNotFoundException {
         String path = "p18/triangle.txt";
         TriangleArray triangle = new TriangleArray(path);
-        System.out.println(
-                triangle.totalMaxAdjacentValues(triangle.getTriangleArray()));
+        List<int[]> triListArray = triangle.getTriangleArray();
+        Collections.reverse(triListArray);
+        triListArray.stream().forEach((row) -> {
+            System.out.println(Arrays.toString(row));
+        });
     }
 }
 
